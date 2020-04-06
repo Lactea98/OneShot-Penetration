@@ -1,0 +1,58 @@
+
+body{
+    background-color: #181a1b;
+}
+
+.main-title{
+    /* div center */
+    margin: auto;
+    
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 1200px;
+    height: 300px;
+    line-height: 300px;
+    text-align: center;
+    
+    color: white;
+    border: solid 1px #dddfe2;
+}
+
+.main-options{
+    /* div center */
+    margin: auto;
+    
+    border: solid 1px white;
+    width: 1200px;
+    height: auto;
+    padding: 30px 20px;
+    margin-bottom: 50px;
+} .options-title{
+    color: white;
+    margin-bottom: 50px;
+} .detail-options{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+} .custom-control-label{
+    color: white;
+}
+
+.main-result{
+    margin: auto;
+    width: 1200px;
+    margin-bottom: 120px;
+} .table-hover{
+    color: white;
+} .result-title{
+    color: white;
+    margin-bottom: 30px;
+}
+
+#footer{
+    margin: auto;
+    width: 1200px;
+    color: #53595d;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
