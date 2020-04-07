@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/custom_bootstrap.css">
         <script src="js/custom_bootstrap.js"></script>
+        <script src="js/main.js"></script>
     </head>
     <body>
         <div id="main-container">
@@ -31,7 +32,7 @@
                         <div class="dynamic-wrap">
                             <form role="form" autocomplete="off">
                                 <div class="entry input-group">
-                                <input class="form-control" name="hosts[]" type="text" placeholder="Input host (You can input multi hosts.)" />
+                                <input class="form-control" name="hosts" type="text" placeholder="Input host (You can input multi hosts.)" />
                                 <span class="input-group-btn">
                                 <button class="btn btn-success btn-add" type="button">
                                     <i class="fas fa-plus"></i>
