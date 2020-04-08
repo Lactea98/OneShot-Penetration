@@ -11,3 +11,7 @@ RUN git clone https://github.com/sa7mon/S3Scanner.git
 RUN PATH=$PATH:/root/go/bin
 vi /root/.bashrc
 export PATH=$PATH:/root/go/bin
+
+
+# chown -R www-data tools
+# all binaries move to /bin/

@@ -32,6 +32,7 @@
                         <div class="dynamic-wrap">
                             <form role="form" autocomplete="off">
                                 <div class="entry input-group">
+                                <input hidden="hidden" class="not-enter">
                                 <input class="form-control" name="hosts" type="text" placeholder="Input host (You can input multi hosts.)" />
                                 <span class="input-group-btn">
                                 <button class="btn btn-success btn-add" type="button">
@@ -63,9 +64,9 @@
                 </div>
                 <button type="button" class="btn btn-success penetration">Start Penetration</button>
             </div>
-            <div class="main-result">
+            <div class="main-result" id="reports">
                 <div class="result-title">
-                    <h2>Reports</h2>
+                    <a href="#reports"><h2>Reports</h2></a>
                 </div>
                 <table class="table table-hover">
                   <thead>
@@ -77,23 +78,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td colspan="2">Larry the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
+                    
                   </tbody>
                 </table>
             </div>
