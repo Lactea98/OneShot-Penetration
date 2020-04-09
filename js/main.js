@@ -40,10 +40,8 @@ $(document).ready(function(){
             // https://loading.io/
             $(".main-result").append("<center><img class='loading' src='./images/loading.svg'></center>");
             
-            
-            
             if(checkbox["subdomain"] == true){
-                subdomain(hosts, checkbox).then(function(subdomain_list){
+                subdomain(hosts).then(function(subdomain_list){
                     if(checkbox["port"] == true){
                         
                     }

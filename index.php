@@ -87,10 +87,10 @@ Oneshot-penetration @universe
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
+                      <th scope="col" style="width: 100px;">#</th>
                       <th scope="col">Sub-domain</th>
-                      <th scope="col">Ports</th>
-                      <th scope="col">Vulnerabilities</th>
+                      <!--<th scope="col">Ports</th>-->
+                      <!--<th scope="col">Vulnerabilities</th>-->
                     </tr>
                   </thead>
                   <tbody>

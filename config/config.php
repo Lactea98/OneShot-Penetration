@@ -11,17 +11,18 @@
       $message = ["type" => "error", "message" => "Input hosts" ];
     }
     else{
-      if($data["checkbox"]["subdomain"] === true){
+      if($data["mode"] === "subdomain"){
         require $_SERVER['DOCUMENT_ROOT']."/config/subdomain.php";
         $message = subdomain($data["hosts"]);
       }
-      if($data["checkbox"]["port"] === true){
+      else if($data["mode"] === "smuggling"){
+        require $_SEVER["DOCUMENT_ROOT"]."/config/smuggling.php";
+        $message = smuggling($data["hosts"]);
+      }
+      else if($data["mode"] === "subdomain"){
         
       }
-      if($data["checkbox"]["s3"] === true){
-        
-      }
-      if($data["checkbox"]["smuggling"] === true){
+      else if($data["mode"] === "subdomain"){
         
       }
     }
