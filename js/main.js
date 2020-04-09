@@ -3,8 +3,9 @@
 $(document).ready(function(){
     $(".penetration").on("click", function(){
         $(".table-hover > tbody").children().remove();
+        $(".custom-header").remove();
         
-        var regex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+        var regex = /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/;
         var hosts = Array();
         var checkbox = {
             "subdomain": $("#subdomain-check").is(":checked"),
@@ -52,6 +53,9 @@ $(document).ready(function(){
                         smuggling(subdomain_list);
                     }
                 });
+            }
+            else if(checkbox["smuggling"] == true){
+                smuggling(hosts);
             }
         }
         

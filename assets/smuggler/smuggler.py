@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import requests
 import argparse
 import sys
@@ -20,7 +22,7 @@ class bcolors:
 class checkServer:
     agent = ''
     timeout = 7
-    loop = 3
+    loop = 1
     tmp = 0
     
     def __init__(self, args):
@@ -226,12 +228,20 @@ class checkServer:
     
        
     def printResult(self, header, data, name = ''):
+        result = ''
         if sys._getframe(1).f_code.co_name.find("TETE") == -1 and self.tmp == 0:
-            print(f'{bcolors.WARNING}[*] Server using {sys._getframe(1).f_code.co_name.replace("check", "")[:4]}{bcolors.ENDC}')
-        print(f"{bcolors.WARNING}>> {name}{bcolors.ENDC}")
-        print(f"{bcolors.FAIL}====== payload ======")
-        print(header + data, end="")
-        print(f"======================{bcolors.ENDC}\n\n")
+            result = f'[*] Server using {sys._getframe(1).f_code.co_name.replace("check", "")[:4]}'
+        result += '''{}
+====== payload ======
+{}{}======================'''.format(name, header, data)
+        
+        result = result.replace("\r\n", "<br>")
+        result = result.replace("\n", "<br>")
+        print(result, end="")
+        # print(f">> {name}")
+        # print(f"====== payload ======")
+        # print(header + data, end="")
+        # print(f"======================\n\n")
 
 # Reference
 # https://stackoverflow.com/questions/28670835/python-socket-client-post-parameters
@@ -292,8 +302,9 @@ if __name__ == "__main__":
     
     try:    
         r = requests.get(args.url)
-    except:
-        print("[!] Failed to establish a new connection: [Errno -2] Name or service not known")
+    except Exception as e:
+        print(e)
+        # print("[!] Failed to establish a new connection: [Errno -2] Name or service not known")
         exit()
     tester = checkServer(args)
     

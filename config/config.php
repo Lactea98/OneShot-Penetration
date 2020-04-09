@@ -16,13 +16,13 @@
         $message = subdomain($data["hosts"]);
       }
       else if($data["mode"] === "smuggling"){
-        require $_SEVER["DOCUMENT_ROOT"]."/config/smuggling.php";
+        require $_SERVER["DOCUMENT_ROOT"]."/config/smuggling.php";
         $message = smuggling($data["hosts"]);
       }
       else if($data["mode"] === "subdomain"){
         
       }
-      else if($data["mode"] === "subdomain"){
+      else if($data["mode"] === "port"){
         
       }
     }

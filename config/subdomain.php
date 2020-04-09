@@ -6,13 +6,13 @@
         $directory_name = $today."_".$hash;
         
         // Create directory        
-        chdir("../result/");
+        chdir("../result");
         if (!mkdir($directory_name, 0755, true)) {
             return ["type" => "fail", "message" => "Failed to create folders"];
         }
         
         // Execute asssetfinder to get subdomain
-        chdir("../result/".$directory_name);        
+        chdir($_SEVER["DOCUMENT_ROOT"] . "/result/".$directory_name);        
         for($count = 0; $count< count($hosts); $count++){
             exec("assetfinder -subs-only ". escapeshellarg($hosts[$count]) ." >> domain");
         }
