@@ -3,19 +3,25 @@ body{
     background-color: #181a1b;
 }
 
+#main-container{
+    position: relative;
+}
+
 .main-title{
-    /* div center */
+    display: table;
     margin: auto;
-    
     margin-top: 50px;
     margin-bottom: 50px;
     width: 1200px;
     height: 300px;
-    line-height: 300px;
     text-align: center;
     
-    color: white;
     border: solid 1px #dddfe2;
+} .main-title > pre{
+    color: white;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 15px;
 }
 
 .main-options{
