@@ -6,4 +6,4 @@
         return ["type" => "success", "result" => $output, "host" => $host];
     }
     
-?>  
+?>

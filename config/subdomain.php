@@ -1,18 +1,14 @@
 <?php
     function subdomain($hosts){
-        // Set filename
-        $today = date("Y.m.d");
-        $hash = bin2hex(random_bytes(16));
-        $directory_name = $today."_".$hash;
+        $result = createDirectory();
         
-        // Create directory        
-        chdir("../result");
-        if (!mkdir($directory_name, 0755, true)) {
-            return ["type" => "fail", "message" => "Failed to create folders"];
+        if($result["type"] == "fail"){
+            return $result;
         }
+        $directory_name = $result["directoryName"];
         
         // Execute asssetfinder to get subdomain
-        chdir($_SEVER["DOCUMENT_ROOT"] . "/result/".$directory_name);        
+        chdir($_SERVER["DOCUMENT_ROOT"] . "/result/".$directory_name . "/");        
         for($count = 0; $count< count($hosts); $count++){
             exec("assetfinder -subs-only ". escapeshellarg($hosts[$count]) ." >> domain");
         }
@@ -25,6 +21,6 @@
         // exec("cat domains | httprobe | tee hosts");
         // exec("cat hosts", $output);
         
-        return ["type" => "success", "subdomain" => $output];
+        return ["type" => "success", "subdomain" => $output, "directoryName" => $directory_name];
     }
 ?>

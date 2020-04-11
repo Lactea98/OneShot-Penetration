@@ -5,6 +5,7 @@ $(document).ready(function(){
         $(".table-hover > tbody").children().remove();
         $(".custom-header").remove();
         
+        // Define
         var regex = /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/;
         var hosts = Array();
         var checkbox = {
@@ -47,7 +48,7 @@ $(document).ready(function(){
                         
                     }
                     if(checkbox["s3"] == true){
-                        s3(subdomain_list)
+                        s3(subdomain_list, $(".directory_name").val());   
                     }
                     if(checkbox["smuggling"] == true){
                         smuggling(subdomain_list);
@@ -56,6 +57,24 @@ $(document).ready(function(){
             }
             else if(checkbox["smuggling"] == true){
                 smuggling(hosts);
+            }
+            else if(checkbox["s3"] == true){
+                var directoryName = $(".directory_name").val();
+                
+                // If not setting directory name
+                if(directoryName == null){
+                    createDirectory().then(function(res){
+                        if(res["type"] == "success"){
+                            s3(hosts, res["directoryName"]);
+                        }
+                        else{
+                            alert(res["message"]);
+                        }
+                    });
+                }
+                else{
+                    s3(hosts, directoryName);                            
+                }
             }
         }
         
@@ -80,3 +99,24 @@ $(document).ready(function(){
         }
     })    
 })
+
+
+function createDirectory(){
+    var directoryName = '';
+    
+    return new Promise(function(resolve, reject){
+        fetch("./config/config.php", {
+            method: "POST",
+            body: JSON.stringify({
+                mode: "createDirectory"
+            }),
+            credentials: "same-origin",
+            headers:{
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+        .then(function(res){
+            resolve(res);
+        })
+    })
+}

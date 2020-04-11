@@ -20,7 +20,9 @@ function subdomain(hosts){
             loadingFadeOut(".loading");
             
             if(res["type"] == "success"){
-                var createTh = `<th scope="col" class="custom-header">Sub-domain</th>`;
+                var createTh = `<th scope="col" class="custom-header">Sub-domain</th>
+                <input type='hidden' class="directory-name" value={}>`;
+                createTh = createTh.replace("{}", res["directoryName"]);
                 $(".table-hover > thead > tr").append(createTh);
                 
                 for(var count=0; count<res["subdomain"].length; count++){
@@ -52,14 +54,43 @@ function subdomain(hosts){
 ///////////////////////////////////////////////////
 
 
-function s3(sub){
+
+///////////////////////////////////////////////////
+// Parameter: Array(), string
+// Example: sub_list       = ["test.com", "1.test.com", "http://test.com"]
+//          directory_name = "{y.m.d}_{randomHash}"
+function s3(sub_list, directory_name){
+    var host = '';
     
+    for(var i = 0; i<sub_list.length; i++){
+        host = sub_list[i].replace("http://", "");
+        host = host.replace("https://", "");
+        
+        fetch("./config/config.php", {
+            method: "POST",
+            body: JSON.stringify({
+                hosts: host,
+                directoryName: directory_name,
+                mode: "s3"
+            }),
+            credentials: "same-origin",
+            headers:{
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+        .then(function(res){
+            if(res["type"] == "success"){
+                
+            }
+        })
+    }
 }
 
 
 ///////////////////////////////////////////////////
 // Parameter: Array()
-// Example: hosts = ["1.test.com", "https://2.test2.com"]
+// Example: sub_list = ["1.test.com", "https://2.test2.com"]
+// Return: Not return value, but print result.
 function smuggling(sub_list){
     var host = '';
     var check = 0;
@@ -80,7 +111,7 @@ function smuggling(sub_list){
             }
         }).then(res => res.json())
         .then(function(res){
-            if(res["result"] != "undefined"){
+            if(res["type"] == "success"){
                 var findHostId = res["host"].replace(/\./g, "-");
                 
                 if($("#"+findHostId).length != 0){
@@ -93,6 +124,7 @@ function smuggling(sub_list){
                     var html = `<td class="result-smuggling">{$host}</td>`;
                     html = html.replace("{$host}", res["result"]);
                     $("#"+findHostId).append(html);
+                    loadingFadeOut(".loading");
                 }
                 else{
                     if(check == 0){
@@ -112,12 +144,12 @@ function smuggling(sub_list){
                     // html = html.replace("{$count}", i+1);
                     html = html.replace("{$host}", res["host"]);
                     html = html.replace("{$result}", res["result"]);
-                    $(".table-hover > tbody").append(html);   
+                    $(".table-hover > tbody").append(html); 
+                    loadingFadeOut(".loading");
                 }   
             }
         })
     }
-    // loadingFadeOut(".loading");
 }
 ///////////////////////////////////////////////////
 
