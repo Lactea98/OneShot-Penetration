@@ -1,17 +1,26 @@
+FROM ubuntu:18.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install golang
-RUN apt-get install git
+RUN apt-get install golang git python3 apache2 php python3-pip -y
+
 RUN go get -u github.com/tomnomnom/assetfinder
 RUN go get -u github.com/tomnomnom/httprobe
 RUN go get -u github.com/tomnomnom/meg
 RUN go get -u github.com/tomnomnom/gf
 RUN go get -u github.com/hahwul/s3reverse
 
-RUN git clone https://github.com/sa7mon/S3Scanner.git
-RUN PATH=$PATH:/root/go/bin
-vi /root/.bashrc
-export PATH=$PATH:/root/go/bin
+RUN cp /root/go/bin/* /bin/
 
+# ENV PATH=$PATH:/root/go/bin
+# RUN export PATH=$PATH:/root/go/bin >> /root/.bashrc
 
-# chown -R www-data tools
-# all binaries move to /bin/
+RUN rm /var/www/html/index.html
+COPY . /var/www/html
+RUN pip3 install -r requires.txt
+RUN chown www-data -R /var/www/html
+RUN chmod 755 -R /var/www/html
+
+EXPOSE 80
+CMD ["apachectl", "-D", "FOREGROUND"]
