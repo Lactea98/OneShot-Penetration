@@ -6,7 +6,7 @@ $(document).ready(function(){
         $(".custom-header").remove();
         
         // Define
-        var regex = /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/;
+        var regex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
         var hosts = Array();
         var checkbox = {
             "subdomain": $("#subdomain-check").is(":checked"),

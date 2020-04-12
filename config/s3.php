@@ -5,27 +5,21 @@
     //              $directoryName = "{y.m.d}_{randomHash}"
     // [*] Return: json type
     function s3($hosts, $directoryName){
-        // // Check if $directory == null
-        // if(!isset($direcyoryName)){
-        //     $result = createDirectory();
-        
-        //     if($result["type"] == "fail"){
-        //         return $result;
-        //     }
-        //     $directoryName = $result["directoryName"];
-        // }
-        
         chdir($_SERVER["DOCUMENT_ROOT"] . "/result/" . $directoryName);
         if(!file_exists("domains")){
             exec("echo " . escapeshellcmd($hosts) . " > domains");
         }
-        exec("cat domains | httprobe | tee hosts");
-        exec("meg -d 1000 / ; cd out ; gf s3-buckets | s3reverse -tV > buckets");
-        exec("cat bockets", $output);
+        shell_exec("cat domains | httprobe | tee hosts");
+        shell_exec("meg -d 1000 /");
+        shell_exec($_SERVER["DOCUMENT_ROOT"] . "/result/chmod.sh");
+        chdir("./out");
+        shell_exec("sudo -u ubuntu gf s3-buckets | sort | uniq > buckets");
+        exec("cat buckets", $output);
         
         return [
             "type" => "success",
-            "buckets" => $output
+            "buckets" => $output,
+            "host" => $hosts
         ];
     }
     ////////////////////////////////////////////////////

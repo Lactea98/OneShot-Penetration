@@ -1,38 +1,91 @@
 # OneShot-Penetration
-OneShot-Penetration
 
-### What is it?
-buy bounty를 할때 여러 가지 툴을 사용하게 됩니다.
-그 중, 필자는 aws bucket takeover 취약점과 http request smuggling 취약점 툴을 사용하는데,
-이를 자동화 시키기 위해 개발 하게 되었습니다.
+### # What is it?
 
-### Functions
+If you start bug bounty, you will maybe use so many auto vulnerablity scan tools.
 
-기능은 아래와 같습니다.
+When you use auto vulnerability scan tools, you have to input command scan tools' option.
 
-`
-Subdomain Scan (Completed)
-Port Scan (Developing)
-Http request smuggling Scan (Completed)
-S3 Scan (Developing)
-`
+This is so annoying, so I made a OneShot-penetration using web application.
 
-- Subdomain Scan
-이 기능은 메인 호스트에서 서브 도메인을 찾는 기능입니다.
+### # Functions
 
-- Port Scan
-이 기능은 해당 호스트의 Port 를 Scan 합니다.
-현재는 개발 중입니다.
+Fucntions include:
 
-- Http request smuggling Scan
-이 기능은 타깃 서버가 Http request smuggling 공격에 취약한지 테스트 하는
-기능을 가지고 있습니다.
+```
+Subdomain Scanner
+Http request smuggling Scanner
+aws bucket scanner
+(And developing..)
+```
 
-- S3 Scan
-이 기능은 해당 웹 페이지에 aws bucket을 스캔하여 takeover가 가능한지를 스캔하는
-기능을 가지고 있습니다.
-현재는 개발 중 입니다.
+##### 1. Subdomain Scanner
+
+This function scans to find sub-domain of target host.
+
+< Example >
+
+Input
+```
+lactea.kr
+```
+
+Output
+```
+git.lactea.kr
+project.lactea.kr
+...
+```
+
+##### 2. Http request smuggling Scanner
+
+This function scans to find http request smuggling vulnerability of target host.
+
+< Example >
+
+Input 
+```
+target-host.com
+```
+
+Output
+```
+[*] Server using CLTE
+>> 
+====== payload ======
+POST / HTTP/1.1
+Host: ac9f1faa1f71d93b807b054000660013.web-security-academy.net
+Content-Length: 4
+Transfer-Encoding: chunked
+
+0
+
+
+======================
+```
+
+
+##### 3. aws bucket scanner
+
+This function scans if HTML code of teraget host is included aws bucket url or not.
+
+
+
+### # External Library Lists
+
+| Library Name  | Comments  | Link |
+| ------------ | ------------ | ------------ |
+| smuggler.py  | Scannig HTTP request smuggling  | https://github.com/Lactea98/smuggler.py |
+| assetfinder |  Scanning sub domain | https://github.com/tomnomnom/assetfinder |
+| gf  | Useful searching pattern  | https://github.com/tomnomnom/gf |
+| meg | Tool for fetching lots of URLs | https://github.com/tomnomnom/meg |
+| httprob | Take a list of domains and probe for working http and https servers. | https://github.com/tomnomnom/httprobe |
+
+### # Update List
+
+[*] v 1.0
 
 
 ### Date
-2020.04.06 ~ 
+
+2020.04.06 ~ Developing..

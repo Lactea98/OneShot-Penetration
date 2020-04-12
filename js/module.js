@@ -61,6 +61,7 @@ function subdomain(hosts){
 //          directory_name = "{y.m.d}_{randomHash}"
 function s3(sub_list, directory_name){
     var host = '';
+    var check = 0;
     
     for(var i = 0; i<sub_list.length; i++){
         host = sub_list[i].replace("http://", "");
@@ -80,7 +81,45 @@ function s3(sub_list, directory_name){
         }).then(res => res.json())
         .then(function(res){
             if(res["type"] == "success"){
+                var hostId = res["host"].replace(/\./g, "-");
+                var resultBuckets = '';
                 
+                for(var a=0; a<res["buckets"].length; a++){
+                    resultBuckets += res["buckets"][a] + "<br>";
+                }
+                
+                if($("#" + hostId).length != 0){
+                    if(check == 0){
+                        var createTh = `<th scope="col" class="custom-header">S3</th>`
+                        $(".table-hover > thead > tr").append(createTh);
+                        check = 1;
+                    }
+                    var html = `<td class="result-s3">{$host}</td>`;
+                    html = html.replace("{$host}", resultBuckets);
+                    $("#" + hostId).append(html);
+                    loadingFadeOut(".loading");
+                }
+                else{
+                    if(check == 0){
+                        var createTh = `<th scope="col" class="custom-header">Host</th>
+                        <th scope="col" class="custom-header">S3</th>`;
+                        $(".table-hover > thead > tr").append(createTh);
+                        
+                        check = 1;
+                    }
+                    
+                    var html = `<tr>
+                    <th scope="row"></th>
+                    <td class="host-name">{$host}</td>
+                    <td class="result-s3">{$result}</td>
+                    </tr>`;
+
+                    // html = html.replace("{$count}", i+1);
+                    html = html.replace("{$host}", host);
+                    html = html.replace("{$result}", resultBuckets);
+                    $(".table-hover > tbody").append(html); 
+                    loadingFadeOut(".loading");
+                }
             }
         })
     }
@@ -112,9 +151,9 @@ function smuggling(sub_list){
         }).then(res => res.json())
         .then(function(res){
             if(res["type"] == "success"){
-                var findHostId = res["host"].replace(/\./g, "-");
+                var hostId = res["host"].replace(/\./g, "-");
                 
-                if($("#"+findHostId).length != 0){
+                if($("#" + hostId).length != 0){
                     if(check == 0){
                         var createTh = `<th scope="col" class="custom-header">Smuggling</th>`;
                         $(".table-hover > thead > tr").append(createTh);
@@ -123,7 +162,7 @@ function smuggling(sub_list){
                     
                     var html = `<td class="result-smuggling">{$host}</td>`;
                     html = html.replace("{$host}", res["result"]);
-                    $("#"+findHostId).append(html);
+                    $("#" + hostId).append(html);
                     loadingFadeOut(".loading");
                 }
                 else{
@@ -157,4 +196,9 @@ function smuggling(sub_list){
 
 function loadingFadeOut(className){
     $(className).fadeOut();
+}
+
+function findHostId(id){
+    id = "#" + id.replace(/\./g, "-");
+    return $(id);
 }
