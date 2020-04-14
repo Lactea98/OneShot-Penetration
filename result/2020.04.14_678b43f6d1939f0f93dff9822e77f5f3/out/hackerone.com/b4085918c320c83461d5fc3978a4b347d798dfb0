@@ -1,0 +1,16 @@
+http://hackerone.com/reports/507097/
+
+> GET /reports/507097/ HTTP/1.1
+> Host: hackerone.com
+> User-Agent: Mozilla/5.0 (compatible; meg/0.2; +https://github.com/tomnomnom/meg)
+
+< HTTP/1.1 301 Moved Permanently
+< Cf-Ray: 583dac80bca3d639-NRT
+< Date: Tue, 14 Apr 2020 13:11:38 GMT
+< Expires: Tue, 14 Apr 2020 14:11:38 GMT
+< Vary: Accept-Encoding
+< Server: cloudflare
+< Cache-Control: max-age=3600
+< Location: https://hackerone.com/reports/507097/
+< X-Content-Type-Options: nosniff
+

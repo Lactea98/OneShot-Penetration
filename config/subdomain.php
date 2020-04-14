@@ -21,6 +21,10 @@
         // exec("cat domains | httprobe | tee hosts");
         // exec("cat hosts", $output);
         
-        return ["type" => "success", "subdomain" => $output, "directoryName" => $directory_name];
+        return [
+            "type" => "success",
+            "subdomain" => $output,
+            "directoryName" => $directory_name
+        ];
     }
 ?>

@@ -8,6 +8,7 @@
         <script src="assets/jquery-3.4.1.min.js"></script>
         <script src="assets/bootstrap-4.4.1-dist/js/bootstrap.js"></script>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
         
         <!-- custom -->
         <link rel="stylesheet" href="css/main.css">
@@ -27,14 +28,6 @@
 
 Oneshot-penetration @universe
 </pre>
-<!--            <pre>-->
-<!--  ____                  _           _          _____                _             _   _             -->
-<!-- / __ \                | |         | |        |  __ \              | |           | | (_)            -->
-<!--| |  | |_ __   ___  ___| |__   ___ | |_ ______| |__) |__ _ __   ___| |_ _ __ __ _| |_ _  ___  _ __  -->
-<!--| |  | | '_ \ / _ \/ __| '_ \ / _ \| __|______|  ___/ _ \ '_ \ / _ \ __| '__/ _` | __| |/ _ \| '_ \ -->
-<!--| |__| | | | |  __/\__ \ | | | (_) | |_       | |  |  __/ | | |  __/ |_| | | (_| | |_| | (_) | | | |-->
-<!-- \____/|_| |_|\___||___/_| |_|\___/ \__|      |_|   \___|_| |_|\___|\__|_|  \__,_|\__|_|\___/|_| |_|-->
-<!--            </pre>-->
             </div>
             <div class="main-options">
                 <!-- option title -->
@@ -67,17 +60,14 @@ Oneshot-penetration @universe
                     <label class="custom-control-label" for="subdomain-check">Sub-domain scan</label>
                 </div>
                 <div class="custom-control custom-checkbox custom-control-inline detail-options">
-                    <input type="checkbox" class="custom-control-input" id="portscan-check">
-                    <label class="custom-control-label" for="portscan-check">Port scan</label>
-                </div>
-                <div class="custom-control custom-checkbox custom-control-inline detail-options">
                     <input type="checkbox" class="custom-control-input" id="s3scan-check">
                     <label class="custom-control-label" for="s3scan-check">s3 scan</label>
                 </div>
-                <div class="custom-control custom-checkbox detail-options">
+                <div class="custom-control custom-checkbox custom-control-inline detail-options">
                     <input type="checkbox" class="custom-control-input" id="httpsmuggling-check">
                     <label class="custom-control-label" for="httpsmuggling-check">HTTP request smuggling scan</label>
                 </div>
+                <br>
                 <button type="button" class="btn btn-success penetration">Start Penetration</button>
             </div>
             <div class="main-result" id="reports">

@@ -1,0 +1,36 @@
+https://v.lactea.kr/
+
+> GET / HTTP/1.1
+> Host: v.lactea.kr
+> User-Agent: Mozilla/5.0 (compatible; meg/0.2; +https://github.com/tomnomnom/meg)
+
+< HTTP/1.1 200 OK
+< Server: Apache
+< Last-Modified: Mon, 07 Oct 2019 02:09:46 GMT
+< Accept-Ranges: bytes
+< Date: Tue, 14 Apr 2020 13:32:18 GMT
+< Etag: "343-594488bc2cc29-gzip"
+< Vary: Accept-Encoding
+< Content-Type: text/html
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	    <meta name="author" content="[##_blogger_##]">
+	    <link rel="shortcut icon" href="[##_blog_link_##]favicon.ico" />
+     	<link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]">
+     	<link rel="stylesheet" href="./style.css">
+        <title>[##_title_##] :: [##_page_title_##]</title>
+    </head>
+    <body>
+        <!-- s_t3: 자바스크립트를 사용하기 위한 태그 -->
+        <s_t3>
+            <header id="header">header</header>
+            <section id="content">content</section>
+            <aside id="sidebar">sidebar</aside>
+            <footer id="footer">footer</footer>
+        </s_t3>
+    </body>
+</html>

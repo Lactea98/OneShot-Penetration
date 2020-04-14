@@ -12,7 +12,8 @@ RUN go get -u github.com/tomnomnom/gf
 RUN go get -u github.com/hahwul/s3reverse
 
 RUN cp /root/go/bin/* /bin/
-RUN cp -r /root/.gf /var/www/
+RUN mkdir /var/www/.gf
+RUN cp /root/go/src/github.com/tomnomnom/gf/examples/* /var/www/.gf/
 
 ENV PATH=$PATH:$HOME/go/bin
 ENV GOPATH=$HOME/go/
@@ -20,7 +21,7 @@ ENV GOPATH=$HOME/go/
 
 RUN rm /var/www/html/index.html
 COPY . /var/www/html
-RUN pip3 install -r requires.txt
+RUN pip3 install -r /var/www/html/requires.txt
 RUN chown www-data -R /var/www/html
 RUN chmod 755 -R /var/www/html
 

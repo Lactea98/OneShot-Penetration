@@ -1,0 +1,102 @@
+https://hackerone.com/reports/209223/
+
+> GET /reports/209223/ HTTP/1.1
+> Host: hackerone.com
+> User-Agent: Mozilla/5.0 (compatible; meg/0.2; +https://github.com/tomnomnom/meg)
+
+< HTTP/1.1 200 OK
+< X-Xss-Protection: 1; mode=block
+< X-Download-Options: noopen
+< Content-Type: text/html; charset=utf-8
+< Content-Disposition: inline; filename="response.html"
+< X-Request-Id: e8d616c3-5555-4de5-be35-da1a46fa3af4
+< X-Permitted-Cross-Domain-Policies: none
+< Expect-Ct: enforce, max-age=86400
+< Server: cloudflare
+< Set-Cookie: __cfduid=de97cf738a1bf44546b8e026f37555f591586869881; expires=Thu, 14-May-20 13:11:21 GMT; path=/; domain=.hackerone.com; HttpOnly; SameSite=Lax; Secure
+< Set-Cookie: _cfuid=d3cd8234-5877-45f9-ac39-bff76bed8b35; path=/; expires=Sat, 14 Apr 2040 13:11:21 -0000; secure; HttpOnly
+< Set-Cookie: __Host-session=NzVpWnRydkhrTGxQL2hOQUFOd0pSZ2VhMnQvdUVTTFZUZ1MxeDA4cGZqQ2xrU1hENzhKS3VtUGMxZnMzdUsrbmI0UGwrSWkzbklpNG55WEtUUlpCRFI0QTdlcmhaNEhaTEFaTndoKzdkQWtUWTNHT0RYelN4SVJ0MVErZzBoOFh4V2hxN2ExeForYnU3VGtBT1pzZ1R3PT0tLXBqZzJVWHE2cU1iRHdqUkpqTjd5SEE9PQ%3D%3D--7776e83dbaab8300bb6e47ea737723a8d205ec8a; path=/; expires=Tue, 28 Apr 2020 13:11:22 -0000; secure; HttpOnly
+< Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+< X-Frame-Options: DENY
+< Referrer-Policy: strict-origin-when-cross-origin
+< Cf-Cache-Status: DYNAMIC
+< Cf-Ray: 583dac179d45d625-NRT
+< Cache-Control: no-cache, no-store
+< X-Content-Type-Options: nosniff
+< Content-Security-Policy: default-src 'none'; base-uri 'self'; block-all-mixed-content; child-src www.youtube-nocookie.com b5s.hackerone-ext-content.com; connect-src 'self' www.google-analytics.com errors.hackerone.net; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src 'self' data: cover-photos.hackerone-user-content.com hackathon-photos.hackerone-user-content.com profile-photos.hackerone-user-content.com hackerone-us-west-2-production-attachments.s3.us-west-2.amazonaws.com; media-src 'self' hackerone-us-west-2-production-attachments.s3.us-west-2.amazonaws.com; script-src 'self' www.google-analytics.com; style-src 'self' 'unsafe-inline'; report-uri https://errors.hackerone.net/api/30/csp-report/?sentry_key=61c1e2f50d21487c97a071737701f598
+< Date: Tue, 14 Apr 2020 13:11:22 GMT
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--[if lte IE 8]>
+  <meta http-equiv="refresh" content="0; url=/browser-not-supported.html">
+  <![endif]-->
+
+  <meta charset="utf-8">
+    <meta name="referrer" content="origin-when-cross-origin">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta property="og:image" content="https://profile-photos.hackerone-user-content.com/variants/000/007/724/bb067434deef370d6a0b16c2cbbc030b57c75e92_original.png/cf1e4b5d44005cb61fab358dd6968415f20545de5f055ba4ed33ca4387948cdc">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Ruby disclosed on HackerOne: Open S3 Bucket WriteAble To Any Aws User" />
+  <meta property="og:url" content="https://hackerone.com/reports/209223" />
+  <meta name="og:description" content="Hi All,
+I know that http://rubyci.s3.amazonaws.com is used for file uploads on reports and so when i open your s3 bucket i able see all of your public/private files i already see you fix this vulnerability but it not completely fixed
+ 
+	root@injector:~# aws s3 ls s3://rubyci
+	                           PRE aix71_ppc/
+	                           PRE amazon/
+	                           PRE...">
+  <meta name="description" content="Hi All,
+I know that http://rubyci.s3.amazonaws.com is used for file uploads on reports and so when i open your s3 bucket i able see all of your public/private files i already see you fix this vulnerability but it not completely fixed
+ 
+	root@injector:~# aws s3 ls s3://rubyci
+	                           PRE aix71_ppc/
+	                           PRE amazon/
+	                           PRE...">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@Hacker0x01" />
+  <meta name="twitter:title" content="Ruby disclosed on HackerOne: Open S3 Bucket WriteAble To Any Aws User" />
+  <meta name="twitter:description" content="Hi All,
+I know that http://rubyci.s3.amazonaws.com is used for file uploads on reports and so when i open your s3 bucket i able see all of your public/private files i already see you fix this..." />
+  <meta name="twitter:image" content="https://profile-photos.hackerone-user-content.com/variants/000/007/724/bb067434deef370d6a0b16c2cbbc030b57c75e92_original.png/cf1e4b5d44005cb61fab358dd6968415f20545de5f055ba4ed33ca4387948cdc" />
+
+
+  <title>HackerOne</title>
+
+  <meta
+    name="slack-app-id"
+    content="A0BFC2YUS" />
+    <meta
+      name="sentry-release-id"
+      content="7beff43" />
+  <meta property="og:site_name" content="HackerOne" />
+  <meta property="fb:app_id" content="345444188982280" />
+  <meta name="csrf-param" content="authenticity_token">
+  <meta name="csrf-token" content="">
+    <link rel="stylesheet" media="all" href="/assets/static/css/vendors~main.01d4a1ad.chunk.css" />
+    <link rel="stylesheet" media="all" href="/assets/static/css/main.695c5c95.css" />
+  <link rel="stylesheet" media="all" href="/assets/vendor-6dd160be79fff643eac1c398c07b418a852c967fb89a21582900bbd600df24f4.css" integrity="sha256-bdFgvnn/9kPqwcOYwHtBioUsln+4miFYKQC71gDfJPQ=" />
+  <script src="/assets/constants-bc14823599418f92741ca7557cf628d4fbec8900282672a43d8cc8ba5f7a0686.js" integrity="sha256-vBSCNZlBj5J0HKdVfPYo1PvsiQAoJnKkPYzIul96BoY="></script>
+      <script src="/assets/static/js/vendors~main.f96c7121.chunk.js"></script>
+      <script src="/assets/static/js/main.390e63cf.js"></script>
+  <script src="/assets/application-19ed03f1bec2c8ca2db9775e1b6870fa735f9c8dbaebaaf93ce641f0d0703669.js" integrity="sha256-Ge0D8b7CyMotuXdeG2hw+nNfnI2666r5POZB8NBwNmk="></script>
+
+  <!-- Yes, this is an unpublished new feature you can hack! -->
+  <!-- Bounties up for grabs @ https://hackerone.com/security -->
+  <meta name="graphql-token" content="" />
+</head>
+<body class="js-application controller_reports action_show _layout signed-out non-boxless" data-locale="en">
+<div class="alerts">
+</div>
+
+  <div class="js-application-root full-size"></div>
+  <noscript>
+  <div class="js-disabled">
+    It looks like your JavaScript is disabled. To use HackerOne, enable JavaScript in your browser and refresh this page.
+  </div>
+</noscript>
+
+  
+  
+</body></html>

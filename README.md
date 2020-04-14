@@ -87,6 +87,16 @@ This function scans if HTML code of teraget host is included aws bucket url or n
 
 [*] v 1.0
 
+[*] v 1.1
+
+[Bug fix]
+
+- If user select multi options, the bug fix that only first option operates.
+- If user input multi hosts, the bug fix that only first option operates.
+- And etc bug fix.
+ 
+
+
 
 ### Date
 

@@ -1,0 +1,16 @@
+http://hackerone.com/reports/209223/
+
+> GET /reports/209223/ HTTP/1.1
+> Host: hackerone.com
+> User-Agent: Mozilla/5.0 (compatible; meg/0.2; +https://github.com/tomnomnom/meg)
+
+< HTTP/1.1 301 Moved Permanently
+< Location: https://hackerone.com/reports/209223/
+< Vary: Accept-Encoding
+< Cf-Ray: 583d9233c9e306b9-NRT
+< Date: Tue, 14 Apr 2020 12:53:41 GMT
+< Cache-Control: max-age=3600
+< Expires: Tue, 14 Apr 2020 13:53:41 GMT
+< X-Content-Type-Options: nosniff
+< Server: cloudflare
+

@@ -30,7 +30,7 @@ function subdomain(hosts){
                     <th scope="row">{$count}</th>
                     <td class="result-host">{$host}</td>
                     </tr>`;
-                    html = html.replace(/\{\$host-id\}/, res["subdomain"][count].replace(/\./g, "-"));
+                    html = html.replace(/\{\$host-id\}/, generationMD5(res["subdomain"][count]));
                     html = html.replace("{$count}", count+1);
                     html = html.replace(/\{\$host\}/g, res["subdomain"][count]);
                     $(".table-hover > tbody").append(html);   
@@ -81,12 +81,16 @@ function s3(sub_list, directory_name){
         }).then(res => res.json())
         .then(function(res){
             if(res["type"] == "success"){
-                var hostId = res["host"].replace(/\./g, "-");
-                hostId = hostId.replace(/\//g, "-");
+                var hostId = generationMD5(res["host"]);
                 var resultBuckets = '';
                 
-                for(var a=0; a<res["buckets"].length; a++){
-                    resultBuckets += res["buckets"][a] + "<br>";
+                if(res["buckets"].length == 0){
+                    resultBuckets = "Not found aws s3 buckets."
+                }
+                else{
+                    for(var a=0; a<res["buckets"].length; a++){
+                        resultBuckets += res["buckets"][a] + "<br>";
+                    }                    
                 }
                 
                 if($("#" + hostId).length != 0){
@@ -109,14 +113,15 @@ function s3(sub_list, directory_name){
                         check = 1;
                     }
                     
-                    var html = `<tr>
+                    var html = `<tr id="{$host-id}">
                     <th scope="row"></th>
                     <td class="host-name">{$host}</td>
                     <td class="result-s3">{$result}</td>
                     </tr>`;
 
                     // html = html.replace("{$count}", i+1);
-                    html = html.replace("{$host}", host);
+                    html = html.replace(/\{\$host-id\}/, generationMD5(res["host"]));
+                    html = html.replace("{$host}", res["host"]);
                     html = html.replace("{$result}", resultBuckets);
                     $(".table-hover > tbody").append(html); 
                     loadingFadeOut(".loading");
@@ -152,8 +157,7 @@ function smuggling(sub_list){
         }).then(res => res.json())
         .then(function(res){
             if(res["type"] == "success"){
-                var hostId = res["host"].replace(/\./g, "-");
-                hostId = hostId.replace(/\//g, "-");
+                var hostId = generationMD5(res["host"]);
                 
                 if($("#" + hostId).length != 0){
                     if(check == 0){
@@ -176,13 +180,14 @@ function smuggling(sub_list){
                         check = 1;
                     }
                     
-                    var html = `<tr>
+                    var html = `<tr id="{$host-id}">
                     <th scope="row"></th>
                     <td class="host-name">{$host}</td>
                     <td class="result-smuggling">{$result}</td>
                     </tr>`;
 
                     // html = html.replace("{$count}", i+1);
+                    html = html.replace(/\{\$host-id\}/, generationMD5(res["host"]));
                     html = html.replace("{$host}", res["host"]);
                     html = html.replace("{$result}", res["result"]);
                     $(".table-hover > tbody").append(html); 
@@ -203,4 +208,8 @@ function loadingFadeOut(className){
 function findHostId(id){
     id = "#" + id.replace(/\./g, "-");
     return $(id);
+}
+
+function generationMD5(value){
+    return CryptoJS.MD5(value);
 }

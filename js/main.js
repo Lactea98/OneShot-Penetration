@@ -55,26 +55,28 @@ $(document).ready(function(){
                     }
                 });
             }
-            else if(checkbox["smuggling"] == true){
-                smuggling(hosts);
-            }
-            else if(checkbox["s3"] == true){
-                var directoryName = $(".directory_name").val();
-                
-                // If not setting directory name
-                if(directoryName == null){
-                    createDirectory().then(function(res){
-                        if(res["type"] == "success"){
-                            s3(hosts, res["directoryName"]);
-                        }
-                        else{
-                            alert(res["message"]);
-                        }
-                    });
+            else{
+                if(checkbox["smuggling"] == true){
+                    smuggling(hosts);
                 }
-                else{
-                    s3(hosts, directoryName);                            
-                }
+                if(checkbox["s3"] == true){
+                    var directoryName = $(".directory_name").val();
+                    
+                    // If not setting directory name
+                    if(directoryName == null){
+                        createDirectory().then(function(res){
+                            if(res["type"] == "success"){
+                                s3(hosts, res["directoryName"]);
+                            }
+                            else{
+                                alert(res["message"]);
+                            }
+                        });
+                    }
+                    else{
+                        s3(hosts, directoryName);                            
+                    }
+                }   
             }
         }
         
