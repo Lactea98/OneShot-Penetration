@@ -82,6 +82,7 @@ function s3(sub_list, directory_name){
         .then(function(res){
             if(res["type"] == "success"){
                 var hostId = res["host"].replace(/\./g, "-");
+                hostId = hostId.replace(/\//g, "-");
                 var resultBuckets = '';
                 
                 for(var a=0; a<res["buckets"].length; a++){
@@ -152,6 +153,7 @@ function smuggling(sub_list){
         .then(function(res){
             if(res["type"] == "success"){
                 var hostId = res["host"].replace(/\./g, "-");
+                hostId = hostId.replace(/\//g, "-");
                 
                 if($("#" + hostId).length != 0){
                     if(check == 0){

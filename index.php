@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="assets/bootstrap-4.4.1-dist/css/bootstrap.css">
         <script src="assets/jquery-3.4.1.min.js"></script>
         <script src="assets/bootstrap-4.4.1-dist/js/bootstrap.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
         
         <!-- custom -->
         <link rel="stylesheet" href="css/main.css">

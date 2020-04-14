@@ -12,9 +12,11 @@ RUN go get -u github.com/tomnomnom/gf
 RUN go get -u github.com/hahwul/s3reverse
 
 RUN cp /root/go/bin/* /bin/
+RUN cp -r /root/.gf /var/www/
 
-# ENV PATH=$PATH:/root/go/bin
-# RUN export PATH=$PATH:/root/go/bin >> /root/.bashrc
+ENV PATH=$PATH:$HOME/go/bin
+ENV GOPATH=$HOME/go/
+# RUN export PATH=$PATH:$HOME/go/bin >> /root/.bashrc
 
 RUN rm /var/www/html/index.html
 COPY . /var/www/html

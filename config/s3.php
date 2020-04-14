@@ -13,7 +13,7 @@
         shell_exec("meg -d 1000 /");
         shell_exec($_SERVER["DOCUMENT_ROOT"] . "/result/chmod.sh");
         chdir("./out");
-        shell_exec("sudo -u ubuntu gf s3-buckets | sort | uniq > buckets");
+        shell_exec("gf s3-buckets | sort | uniq > buckets");
         exec("cat buckets", $output);
         
         return [
