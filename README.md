@@ -1,5 +1,9 @@
 # OneShot-Penetration
 
+Web application scanner.
+
+![images](https://img.shields.io/badge/ubuntu-18.04-red) ![image](https://img.shields.io/badge/docker-19.03.8-blue) ![images](https://img.shields.io/badge/docker--compose-1.23.2-blue) ![images](https://img.shields.io/badge/apache2-2.4.29-blue) ![iamges](https://img.shields.io/badge/php-7.0-blue) ![images](https://img.shields.io/badge/python-3.6-blue)
+
 ![image](https://user-images.githubusercontent.com/38517436/79089046-97d72780-7d7f-11ea-9e5a-590ba5d656d1.png)
 
 ### # What is it?
