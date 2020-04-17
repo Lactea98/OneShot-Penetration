@@ -90,7 +90,11 @@ function s3(sub_list, directory_name){
                 else{
                     for(var a=0; a<res["buckets"].length; a++){
                         resultBuckets += res["buckets"][a] + "<br>";
-                    }                    
+                    }
+                    resultBuckets += "<br>== S3 Takeover Result ==<br>";
+                    for(var i=0; i<res["result"].length; i++){
+                        resultBuckets += res["result"][i] + "<br>";
+                    }
                 }
                 
                 if($("#" + hostId).length != 0){

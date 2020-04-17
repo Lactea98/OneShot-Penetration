@@ -1,2 +1,7 @@
 requests
 fake_useragent
+awscli
+pytest-xdist
+coloredlogs
+boto3
+requests

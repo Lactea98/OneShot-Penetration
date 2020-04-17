@@ -21,12 +21,15 @@
         <div id="main-container">
             <div class="main-title">
         <pre>
+            https://elasticbeanstalk-ap-northeast-1-880598192158.s3-ap-northeast-1.amazonaws.com
+            https://elasticbeanstalk-us-west-2-880598192158.s3-us-west-2.amazonaws.com
+            shopify-assets.s3.amazonaws.com
  _____             _       _       _____             _           _   _         
 |     |___ ___ ___| |_ ___| |_ ___|  _  |___ ___ ___| |_ ___ ___| |_|_|___ ___ 
 |  |  |   | -_|_ -|   | . |  _|___|   __| -_|   | -_|  _|  _| .'|  _| | . |   |
 |_____|_|_|___|___|_|_|___|_|     |__|  |___|_|_|___|_| |_| |__,|_| |_|___|_|_|
 
-Oneshot-penetration @universe
+v1.1 Oneshot-penetration @universe
 </pre>
             </div>
             <div class="main-options">

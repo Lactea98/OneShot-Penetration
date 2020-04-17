@@ -16,11 +16,27 @@
         shell_exec("gf s3-buckets | sort | uniq > buckets");
         exec("cat buckets", $output);
         
+        $result = s3TakeOverCheck($output);
+        
         return [
             "type" => "success",
             "buckets" => $output,
-            "host" => $hosts
+            "host" => $hosts,
+            "result" => $result
         ];
+    }
+    ////////////////////////////////////////////////////
+    
+    
+    ////////////////////////////////////////////////////
+    // [*] Parameter: $buckets = array()
+    // [*] Example: $buckets = ["test.s3.amazonaws.com", "..."]
+    // [*] Return: Array
+    function s3TakeOverCheck($buckets){
+        $result = Array();
+        exec("s3reverse -iL buckets -verify", $output);
+        
+        return $output;
     }
     ////////////////////////////////////////////////////
 ?>

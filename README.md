@@ -91,16 +91,28 @@ This function scans if HTML code of teraget host is included aws bucket url or n
 
 [*] v 1.0
 
-[*] v 1.1
+[*] v 1.1 (2020.04.14)
 
-[Bug fix]
+[Bugs fix]
 
 - If user select multi options, the bug fix that only first option operates.
 - If user input multi hosts, the bug fix that only first option operates.
 - And etc bug fix.
  
+[*] v 1.2 (2020.04.??)
 
+[Updates]
 
+- Appended gf's s3-buckets pattern. Get more detail s3 bucket urls.
+
+```
+[a-z0-9-]+\\.s3-[a-z0-9-]+\\.amazonaws\\.com/[a-z0-9._-]+
+[a-z0-9-]+\\.s3-[a-z0-9-]+\\.amazonaws\\.com
+```
+
+- User can show to check that s3 buckets can be overwritten or not.
+
+- User can check current version on main page.
 
 ### Date
 
