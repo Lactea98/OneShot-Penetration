@@ -8,7 +8,7 @@ Web application scanner.
 
 ### # What is it?
 
-If you start bug bounty, you will maybe use so many auto vulnerablity scan tools.
+If you start bug bounty, you will maybe use so many auto vulnerability scan tools.
 
 When you use auto vulnerability scan tools, you have to input command scan tools' option.
 
@@ -99,7 +99,7 @@ This function scans if HTML code of teraget host is included aws bucket url or n
 - If user input multi hosts, the bug fix that only first option operates.
 - And etc bug fix.
  
-[*] v 1.2 (2020.04.??)
+[*] v 1.2 (2020.04.17)
 
 [Updates]
 
